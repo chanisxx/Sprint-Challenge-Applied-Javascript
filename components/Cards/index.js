@@ -39,8 +39,8 @@ const cards = (article) => {
     authorName.textContent = `By ${article.authorName}`;
 
 
-    card.append(headline, author, authorName);
-    author.append(imgCont);
+    card.append(headline, author);
+    author.append(imgCont, authorName);
     imgCont.append(img);
 
     return card
@@ -55,7 +55,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
             container3.appendChild(cards(response.data.articles[key][i]))
         }
     }
-  console.log('API RESPONSE HTTP', response.data.articles);
+  console.log('API RESPONSE HTTP', response);
 })
 .catch(err => {
     console.log('PROMISE ERROR', err);
